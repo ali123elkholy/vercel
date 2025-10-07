@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Salary Total</title>
+</head>
+<body style="font-size: 18px;">
+
+  <h2>Employee Salary Table</h2>
+
+  <table border="1" style="width: 60%; text-align: center;">
+    <tr>
+      <th>Name</th>
+      <th>Department</th>
+      <th>Salary ($)</th>
+    </tr>
+    <tr>
+      <td>Alice Smith</td>
+      <td>Marketing</td>
+      <td><input type="number" class="salary" value="3000"></td>
+    </tr>
+    <tr>
+      <td>Bob Johnson</td>
+      <td>IT</td>
+      <td><input type="number" class="salary" value="2500"></td>
+    </tr>
+    <tr>
+      <td>Charlie Brown</td>
+      <td>HR</td>
+      <td><input type="number" class="salary" value="2800"></td>
+    </tr>
+    <tr>
+      <th colspan="2">Total Salary</th>
+      <th id="total">0</th>
+    </tr>
+  </table>
+
+  <br>
+  <button onclick="calculateTotal()">Calculate Total</button>
+
+  <script>
+    function calculateTotal() 
+    {
+      let total = 0;
+      // get all salary inputs
+      const salaries = document.querySelectorAll('.salary');
+      salaries.forEach(input => 
+      {
+        total += Number(input.value); // add each salary value
+      });
+      // display the result
+      document.getElementById('total').textContent = total.toFixed(2);
+    }
+  </script>
+
+</body>
+</html>
